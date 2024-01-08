@@ -25,10 +25,7 @@ public class FlowableDefinitions {
 
 
     //Database
-    public static final String DATABASE_TABLES                    = "/service/management/tables";
-    public static final String DATABASE_TABLE                     = "/service/management/tables/{tableName}";
-    public static final String DATABASE_COLUMN_FOR_SINGLE_TABLE   = "/service/management/tables/{tableName}/columns";
-    public static final String DATABASE_DATA_FOR_SINGLE_ROW       = "/service/management/tables/{tableName}/data";
+
 
 
     //Deployment
@@ -154,7 +151,7 @@ public class FlowableDefinitions {
     public static final String RUNTIME_SIGNALS = "/service/runtime/signals";
 
 
-    public static final String TENANTS              = "";
+    public static final String ORDER                = "order";
     public static final String NAME                 = "name";
     public static final String NAME_LIKE            = "nameLike";
     public static final String CATEGORY             = "category";

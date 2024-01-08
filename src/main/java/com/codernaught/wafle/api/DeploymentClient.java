@@ -36,6 +36,9 @@ public interface DeploymentClient {
     @GetExchange(FlowableDefinitions.DEPLOYMENTS)
     Mono<ResponseEntity<String>> getDeployments(@RequestParam Map<String,String> requestParameters);
 
+    @GetExchange(FlowableDefinitions.DEPLOYMENT)
+    Mono<ResponseEntity<String>> getDeployment(@PathVariable String deploymentId);
+
     @PostExchange(value = FlowableDefinitions.DEPLOYMENTS, contentType = "multipart/form-data")
     Mono<ResponseEntity<String>> createDeployment(@RequestPart FileSystemResource fileSystemResource, @RequestPart String tenantId);
 

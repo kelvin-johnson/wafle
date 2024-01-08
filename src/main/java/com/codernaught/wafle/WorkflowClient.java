@@ -165,6 +165,10 @@ public class WorkflowClient {
         return deploymentClient.getDeployments(requestParameters);
     }
 
+    public Mono<ResponseEntity<String>> getDeployment(String deploymentId) {
+        return deploymentClient.getDeployment(deploymentId);
+    }
+
 
     public Mono<ResponseEntity<String>> createDeployment(FileSystemResource fileSystemResource, String tenantId) {
         return deploymentClient.createDeployment(fileSystemResource, tenantId);
