@@ -17,11 +17,11 @@
 package com.codernaught.wafle.api;
 
 import com.codernaught.wafle.definition.FlowableDefinitions;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.service.annotation.DeleteExchange;
-import org.springframework.web.service.annotation.GetExchange;
-import org.springframework.web.service.annotation.PostExchange;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.service.annotation.*;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -37,7 +37,8 @@ public interface ModelClient {
     @PostExchange(FlowableDefinitions.MODELS)
     Mono<ResponseEntity<String>> createModel(@PathVariable String name, Map<String,String> modelInfo);
 
-    Mono<ResponseEntity<String>> updateModel(@PathVariable String modelId);
+    @PatchExchange(value=FlowableDefinitions.MODEL, contentType = "multipart/form-data")
+    Mono<ResponseEntity<String>> updateModel(@RequestPart FileSystemResource fileSystemResource, @PathVariable String modelId);
 
     @DeleteExchange(FlowableDefinitions.MODEL)
     Mono<ResponseEntity<String>> deleteModel(@PathVariable String modelId);
@@ -45,11 +46,13 @@ public interface ModelClient {
     @GetExchange(FlowableDefinitions.MODEL_SOURCE)
     Mono<ResponseEntity<String>> getModelEditorSource(@PathVariable String modelId);
 
-    Mono<ResponseEntity<String>> setModelEditorSource(@PathVariable String modelId, String modelEditorSource);
+    @PutExchange(value=FlowableDefinitions.MODEL_SOURCE, contentType = "multipart/form-data")
+    Mono<ResponseEntity<String>> setModelEditorSource(@RequestPart FileSystemResource fileSystemResource, @PathVariable String modelId, String modelEditorSource);
 
     @GetExchange(FlowableDefinitions.MODEL_SOURCE_EXTRA)
     Mono<ResponseEntity<String>> getModelEditorSourceExtra(@PathVariable String modelId, @PathVariable String resourceId);
 
-    Mono<ResponseEntity<String>> setModelEditorSourceExtra(@PathVariable String modelId, @PathVariable String resourceId, String modelEditorSourceExtra);
+    @PutExchange(value=FlowableDefinitions.MODEL_SOURCE_EXTRA, contentType = "multipart/form-data")
+    Mono<ResponseEntity<String>> setModelEditorSourceExtra(@RequestPart FileSystemResource fileSystemResource, @PathVariable String modelId, @PathVariable String resourceId, String modelEditorSourceExtra);
 
 }

@@ -17,7 +17,6 @@
 package com.codernaught.wafle.api;
 
 import com.codernaught.wafle.definition.FlowableDefinitions;
-import com.codernaught.wafle.dto.ProcessDefinitionsDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.service.annotation.DeleteExchange;

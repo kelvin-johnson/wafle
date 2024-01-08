@@ -35,37 +35,37 @@ import java.util.Map;
 public interface UserClient {
 
     @PostExchange(FlowableDefinitions.USER)
-    Mono<String> createUser(@PathVariable String userId, @RequestParam Map<String,String> requestParameters);
+    Mono<ResponseEntity<String>> createUser(@PathVariable String userId, @RequestParam Map<String,String> requestParameters);
 
     @GetExchange(FlowableDefinitions.USERS)
     Mono<ResponseEntity<String>> getUsers(@RequestParam Map<String,String> requestParameters);
 
     @GetExchange(FlowableDefinitions.USER)
-    Mono<String> getUser(@PathVariable String userId);
+    Mono<ResponseEntity<String>> getUser(@PathVariable String userId);
 
     @DeleteExchange(FlowableDefinitions.USER)
-    Mono<String> deleteUser(@PathVariable String userId);
+    Mono<ResponseEntity<String>> deleteUser(@PathVariable String userId);
 
     @GetExchange(FlowableDefinitions.USER_PICTURE)
-    Flux<DataBuffer> getUserPicture(@PathVariable String userId);
+    Mono<ResponseEntity<Flux<DataBuffer>>> getUserPicture(@PathVariable String userId);
 
     @GetExchange(FlowableDefinitions.USER_INFO)
-    Mono<String> getUserInfoList(@PathVariable String userId);
+    Mono<ResponseEntity<String>> getUserInfoList(@PathVariable String userId);
 
     @GetExchange(FlowableDefinitions.USER_INFO)
-    Mono<String> getUserInfo(@PathVariable String userId, @PathVariable String key);
+    Mono<ResponseEntity<String>> getUserInfo(@PathVariable String userId, @PathVariable String key);
 
     @PutExchange(FlowableDefinitions.USER_INFO)
-    Mono<String> updateUserInfo(@PathVariable String userId, @PathVariable String key, @RequestParam Map<String,String> requestParameters);
+    Mono<ResponseEntity<String>> updateUserInfo(@PathVariable String userId, @PathVariable String key, @RequestParam Map<String,String> requestParameters);
 
     @PostExchange(FlowableDefinitions.USER_INFO)
-    Mono<String> createUserInfo(@PathVariable String userId, @PathVariable String key, @RequestParam Map<String,String> requestParameters);
+    Mono<ResponseEntity<String>> createUserInfo(@PathVariable String userId, @PathVariable String key, @RequestParam Map<String,String> requestParameters);
 
     @DeleteExchange(FlowableDefinitions.USER_INFO)
-    Mono<String> deleteUserInfo(@PathVariable String userId, @PathVariable String key);
+    Mono<ResponseEntity<String>> deleteUserInfo(@PathVariable String userId, @PathVariable String key);
 
     @GetExchange(FlowableDefinitions.USER_PICTURE)
-    Flux<DataBuffer> getUserPictureData(@PathVariable String userId);
+    Mono<ResponseEntity<Flux<DataBuffer>>> getUserPictureData(@PathVariable String userId);
 
     @PutExchange(FlowableDefinitions.USER_PICTURE)
     Mono<ResponseEntity<String>> updateUserPicture(@RequestPart FileSystemResource fileSystemResource, @PathVariable String userId, @RequestPart String mimeType);

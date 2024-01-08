@@ -16,11 +16,12 @@
 
 package com.codernaught.wafle.api;
 
+import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 
 public interface JobClient {
 
-    Mono<String> getJobs();
+    Mono<ResponseEntity<String>> getJobs();
 
-    Mono<String> getJob(String jobId);
+    Mono<ResponseEntity<String>> getJob(String jobId);
 }

@@ -248,7 +248,7 @@ public class WorkflowClient {
     }
 
     
-    public Mono<String> getUser(String userId) {
+    public Mono<ResponseEntity<String>> getUser(String userId) {
         return userClient.getUser(userId);
     }
 
@@ -263,7 +263,7 @@ public class WorkflowClient {
     }
 
     
-    public Flux<DataBuffer> getUserPicture(String userId) {
+    public Mono<ResponseEntity<Flux<DataBuffer>>> getUserPicture(String userId) {
         return userClient.getUserPicture(userId);
     }
 
@@ -288,12 +288,12 @@ public class WorkflowClient {
     }
 
     
-    public Mono<String> deleteUserInfo(String userId, String key) {
+    public Mono<ResponseEntity<String>> deleteUserInfo(String userId, String key) {
         return userClient.deleteUserInfo(userId, key);
     }
 
     
-    public Flux<DataBuffer> getUserPictureData(String userId) {
+    public Mono<ResponseEntity<Flux<DataBuffer>>> getUserPictureData(String userId) {
         return userClient.getUserPictureData(userId);
     }
 
