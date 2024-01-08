@@ -90,12 +90,22 @@ public class FlowableDefinitions {
     public static final String TASKS                        = "/service/runtime/tasks";
     public static final String TASK                         = "/service/runtime/tasks/{taskId}";
     public static final String TASK_QUERY                   = "/service/query/tasks";
-
     public static final String TASK_VARIABLES               = "/service/runtime/tasks/{taskId}/variables";
     public static final String TASK_VARIABLE                = "/service/runtime/tasks/{taskId}/variables/{variableName}";
     public static final String TASK_VARIABLE_DATA           = "/service/runtime/tasks/{taskId}/variables/{variableName}/data";
     public static final String TASK_IDENTITY_LINKS          = "/service/runtime/tasks/{taskId}/identitylinks";
-    
+    public static final String TASK_IDENTITY_LINKS_USERS    = "/service/runtime/tasks/{taskId}/identitylinks/users";
+    public static final String TASK_IDENTITY_LINKS_GROUPS   = "/service/runtime/tasks/{taskId}/identitylinks/groups";
+    public static final String TASK_IDENTITY_LINK           = "/service/runtime/tasks/{taskId}/identitylinks/{family}/{identityId}/{type}";
+    public static final String TASK_COMMENTS                = "/service/runtime/tasks/{taskId}/comments";
+    public static final String TASK_COMMENT                 = "/service/runtime/tasks/{taskId}/comments/{commentId}";
+    public static final String TASK_EVENTS                  = "runtime/tasks/{taskId}/events";
+    public static final String TASK_EVENT                   = "runtime/tasks/{taskId}/events/{eventId}";
+    public static final String TASK_ATTACHMENTS             = "/service/runtime/tasks/{taskId}/attachments";
+    public static final String TASK_ATTACHMENT              = "/service/runtime/tasks/{taskId}/attachments/{attachmentId}";
+    public static final String TASK_ATTACHMENT_DATA         = "/service/runtime/tasks/{taskId}/attachment/{attachmentId}/content";
+
+
 
     //Users
     public static final String USERS            = "/service/identity/users";
@@ -112,12 +122,36 @@ public class FlowableDefinitions {
     public static final String GROUP_MEMBER_DELETE  = "/service/identity/groups/{groupId}/members/{userId}";
 
 
+    //History
+    public static final String HISTORIC_PROCESS_INSTANCES               = "/service/history/historic-process-instances";
+    public static final String HISTORIC_PROCESS_INSTANCE                = "/service/history/historic-process-instances/{processInstanceId}";
+    public static final String HISTORIC_PROCESS_INSTANCE_QUERY          = "/service/query/historic-process-instances";
+    public static final String HISTORIC_PROCESS_INSTANCE_IDENTITYLINKS  = "/service/history/historic-process-instance/{processInstanceId}/identitylinks";
+    public static final String HISTORIC_PROCESS_INSTANCE_VARIABLE_DATA  = "/service/history/historic-process-instances/{processInstanceId}/variables/{variableName}/data";
+    public static final String HISTORIC_PROCESS_INSTANCE_COMMENTS       = "/service/history/historic-process-instances/{processInstanceId}/comments";
+    public static final String HISTORIC_PROCESS_INSTANCE_COMMENT        = "/service/history/historic-process-instances/{processInstanceId}/comments/{commentId}";
+    public static final String HISTORIC_TASK_INSTANCE                   = "/service/history/historic-task-instances/{taskId}";
+    public static final String HISTORIC_TASK_INSTANCES                  = "/service/history/historic-task-instances";
+    public static final String HISTORIC_TASK_INSTANCE_QUERY             = "/service/query/historic-task-instances";
+    public static final String HISTORIC_TASK_INSTANCE_IDENTITYLINKS     = "/service/history/historic-task-instance/{taskId}/identitylinks";
+    public static final String HISTORIC_TASK_INSTANCE_VARIABLE_DATA     = "/service/history/historic-task-instances/{taskId}/variables/{variableName}/data";
+    public static final String HISTORIC_ACTIVITY_INSTANCES              = "/service/history/historic-activity-instances";
+    public static final String HISTORIC_ACTIVITY_INSTANCES_QUERY        = "/service/query/historic-activity-instances";
+    public static final String HISTORIC_VARIABLE_INSTANCES              = "/service/history/historic-variable-instances";
+    public static final String HISTORIC_VARIABLE_INSTANCE_QUERY         = "/service/query/historic-variable-instances";
+    public static final String HISTORIC_VARIABLE_INSTANCE_DATA          = "/service/history/historic-variable-instances/{varInstanceId}/data";
+    public static final String HISTORIC_DETAIL                          = "/service/history/historic-detail";
+    public static final String HISTORIC_DETAIL_QUERY                    = "/service/query/historic-detail";
+    public static final String HISTORIC_DETAIL_DATA                     = "/service/history/historic-detail/{detailId}/data";
+    public static final String HISTORIC_PROCESS_INSTANCE_VARIABLES      = "/service/history/historic-process-instances/{processInstanceId}/variables";
+
+
     //Forms
-    public static final String FORM_DEFINITIONS              = "/service/form/form-data";
+    public static final String FORM_DEFINITIONS = "/service/form/form-data";
 
 
     //Runtime
-    public static final String RUNTIME_SIGNALS               = "/service/runtime/signals";
+    public static final String RUNTIME_SIGNALS = "/service/runtime/signals";
 
 
     public static final String TENANTS              = "";
