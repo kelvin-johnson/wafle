@@ -16,5 +16,18 @@
 
 package com.codernaught.wafle.api;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.service.annotation.GetExchange;
+import reactor.core.publisher.Mono;
+
 public interface EngineClient {
+    static final String ENGINE_MANAGEMENT_PROPERTIES = "/service/management/properties";
+    static final String ENGINE_MANAGEMENT_ENGINE     = "/service/management/engine";
+
+    @GetExchange(value = ENGINE_MANAGEMENT_PROPERTIES)
+    Mono<ResponseEntity<String>> getEngineProperties();
+
+    @GetExchange(value = ENGINE_MANAGEMENT_ENGINE)
+    Mono<ResponseEntity<String>> getEngine();
+
 }

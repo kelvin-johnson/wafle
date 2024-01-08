@@ -27,32 +27,36 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 public interface ModelClient {
+    final String MODELS                      = "/service/repository/models";
+    final String MODEL                       = "/service/repository/models/{modelId}";
+    final String MODEL_SOURCE                = "/service/repository/models/{modelId}/source";
+    final String MODEL_SOURCE_EXTRA          = "/service/repository/models/{modelId}/source-extra";
 
-    @GetExchange(FlowableDefinitions.MODELS)
+    @GetExchange(MODELS)
     Mono<ResponseEntity<String>> getModels();
 
-    @GetExchange(FlowableDefinitions.MODEL)
+    @GetExchange(MODEL)
     Mono<ResponseEntity<String>> getModel(@PathVariable String modelId);
 
-    @PostExchange(FlowableDefinitions.MODELS)
+    @PostExchange(MODELS)
     Mono<ResponseEntity<String>> createModel(@PathVariable String name, Map<String,String> modelInfo);
 
-    @PatchExchange(value=FlowableDefinitions.MODEL, contentType = "multipart/form-data")
+    @PatchExchange(value=MODEL, contentType = "multipart/form-data")
     Mono<ResponseEntity<String>> updateModel(@RequestPart FileSystemResource fileSystemResource, @PathVariable String modelId);
 
-    @DeleteExchange(FlowableDefinitions.MODEL)
+    @DeleteExchange(MODEL)
     Mono<ResponseEntity<String>> deleteModel(@PathVariable String modelId);
 
-    @GetExchange(FlowableDefinitions.MODEL_SOURCE)
+    @GetExchange(MODEL_SOURCE)
     Mono<ResponseEntity<String>> getModelEditorSource(@PathVariable String modelId);
 
-    @PutExchange(value=FlowableDefinitions.MODEL_SOURCE, contentType = "multipart/form-data")
+    @PutExchange(value=MODEL_SOURCE, contentType = "multipart/form-data")
     Mono<ResponseEntity<String>> setModelEditorSource(@RequestPart FileSystemResource fileSystemResource, @PathVariable String modelId, String modelEditorSource);
 
-    @GetExchange(FlowableDefinitions.MODEL_SOURCE_EXTRA)
+    @GetExchange(MODEL_SOURCE_EXTRA)
     Mono<ResponseEntity<String>> getModelEditorSourceExtra(@PathVariable String modelId, @PathVariable String resourceId);
 
-    @PutExchange(value=FlowableDefinitions.MODEL_SOURCE_EXTRA, contentType = "multipart/form-data")
+    @PutExchange(value=MODEL_SOURCE_EXTRA, contentType = "multipart/form-data")
     Mono<ResponseEntity<String>> setModelEditorSourceExtra(@RequestPart FileSystemResource fileSystemResource, @PathVariable String modelId, @PathVariable String resourceId, String modelEditorSourceExtra);
 
 }

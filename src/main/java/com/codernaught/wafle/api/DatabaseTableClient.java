@@ -23,10 +23,10 @@ import org.springframework.web.service.annotation.GetExchange;
 import reactor.core.publisher.Mono;
 
 public interface DatabaseTableClient {
-    public static final String DATABASE_TABLES                    = "/service/management/tables";
-    public static final String DATABASE_TABLE                     = "/service/management/tables/{tableName}";
-    public static final String DATABASE_COLUMN_FOR_SINGLE_TABLE   = "/service/management/tables/{tableName}/columns";
-    public static final String DATABASE_DATA_FOR_SINGLE_ROW       = "/service/management/tables/{tableName}/data";
+    static final String DATABASE_TABLES                    = "/service/management/tables";
+    static final String DATABASE_TABLE                     = "/service/management/tables/{tableName}";
+    static final String DATABASE_COLUMN_FOR_SINGLE_TABLE   = "/service/management/tables/{tableName}/columns";
+    static final String DATABASE_DATA_FOR_SINGLE_ROW       = "/service/management/tables/{tableName}/data";
 
     @GetExchange(DATABASE_TABLES)
     Mono<ResponseEntity<String>> getDatabaseTables();

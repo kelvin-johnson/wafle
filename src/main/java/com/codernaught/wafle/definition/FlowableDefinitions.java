@@ -29,25 +29,14 @@ public class FlowableDefinitions {
 
 
     //Deployment
-    public static final String DEPLOYMENTS                = "/service/repository/deployments";
-    public static final String DEPLOYMENT                 = "/service/repository/deployments/{deploymentId}";
-    public static final String DEPLOYMENT_RESOURCES       = "/service/repository/deployments/{deploymentId}/resources";
-    public static final String DEPLOYMENT_RESOURCE        = "/service/repository/deployments/{deploymentId}/resources/{resourceId}";
-    public static final String DEPLOYMENT_RESOURCE_DATA   = "/service/repository/deployments/{deploymentId}/resourcedata/{resourceId}";
 
 
     //Engine
-    public static final String ENGINE_MANAGEMENT_PROPERTIES = "/service/management/properties";
-    public static final String ENGINE_MANAGEMENT_ENGINE     = "/service/management/engine";
+
 
 
     //Execution
-    public static final String EXECUTIONS                   = "/service/runtime/executions";
-    public static final String EXECUTION                    = "/service/runtime/executions/{executionId}";
-    public static final String EXECUTION_QUERY              = "/service/query/executions";
-    public static final String EXECUTION_ACTIVITIES         = "/service/runtime/executions/{executionId}/activities";
-    public static final String EXECUTION_VARIABLES          = "/service/runtime/executions/{executionId}/variables";
-    public static final String EXECUTION_VARIABLE           = "/service/runtime/executions/{executionId}/variables/{variableName}";
+
 
 
     //Process Definitions
@@ -70,10 +59,7 @@ public class FlowableDefinitions {
     public static final String PROCESS_INSTANCE_QUERY                       = "/service/query/process-instances";
 
     //Models
-    public static final String MODELS                      = "/service/repository/models";
-    public static final String MODEL                       = "/service/repository/models/{modelId}";
-    public static final String MODEL_SOURCE                = "/service/repository/models/{modelId}/source";
-    public static final String MODEL_SOURCE_EXTRA          = "/service/repository/models/{modelId}/source-extra";
+
 
     //Jobs
     public static final String JOBS                             = "/service/management/jobs";

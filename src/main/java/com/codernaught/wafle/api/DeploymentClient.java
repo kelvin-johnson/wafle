@@ -32,28 +32,33 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 public interface DeploymentClient {
+    final String DEPLOYMENTS                = "/service/repository/deployments";
+    final String DEPLOYMENT                 = "/service/repository/deployments/{deploymentId}";
+    final String DEPLOYMENT_RESOURCES       = "/service/repository/deployments/{deploymentId}/resources";
+    final String DEPLOYMENT_RESOURCE        = "/service/repository/deployments/{deploymentId}/resources/{resourceId}";
+    final String DEPLOYMENT_RESOURCE_DATA   = "/service/repository/deployments/{deploymentId}/resourcedata/{resourceId}";
 
-    @GetExchange(FlowableDefinitions.DEPLOYMENTS)
+    @GetExchange(DEPLOYMENTS)
     Mono<ResponseEntity<String>> getDeployments(@RequestParam Map<String,String> requestParameters);
 
-    @GetExchange(FlowableDefinitions.DEPLOYMENT)
+    @GetExchange(DEPLOYMENT)
     Mono<ResponseEntity<String>> getDeployment(@PathVariable String deploymentId);
 
-    @PostExchange(value = FlowableDefinitions.DEPLOYMENTS, contentType = "multipart/form-data")
+    @PostExchange(value = DEPLOYMENTS, contentType = "multipart/form-data")
     Mono<ResponseEntity<String>> createDeployment(@RequestPart FileSystemResource fileSystemResource, @RequestPart String tenantId);
 
-    @PostExchange(value = FlowableDefinitions.DEPLOYMENTS, contentType = "multipart/form-data")
+    @PostExchange(value = DEPLOYMENTS, contentType = "multipart/form-data")
     Mono<ResponseEntity<String>> createDeployment(@RequestPart FileSystemResource fileSystemResource);
 
-    @DeleteExchange(FlowableDefinitions.DEPLOYMENT)
+    @DeleteExchange(DEPLOYMENT)
     Mono<ResponseEntity<Void>> deleteDeployment(@PathVariable String deploymentId);
 
-    @GetExchange(FlowableDefinitions.DEPLOYMENT_RESOURCES)
+    @GetExchange(DEPLOYMENT_RESOURCES)
     Mono<ResponseEntity<String>> getDeploymentResources(@PathVariable String deploymentId);
 
-    @GetExchange(FlowableDefinitions.DEPLOYMENT_RESOURCE)
+    @GetExchange(DEPLOYMENT_RESOURCE)
     Mono<ResponseEntity<String>> getDeploymentResource(@PathVariable String deploymentId, @PathVariable String resourceId);
 
-    @GetExchange(FlowableDefinitions.DEPLOYMENT_RESOURCE_DATA)
+    @GetExchange(DEPLOYMENT_RESOURCE_DATA)
     Mono<ResponseEntity<Flux<DataBuffer>>> getDeploymentResourceData(@PathVariable String deploymentId, @PathVariable String resourceId);
 }
